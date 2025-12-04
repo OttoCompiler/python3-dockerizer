@@ -1,15 +1,5 @@
 #!/usr/bin/env python3
-"""
-Python to Docker Containerizer
 
-Automatically creates a Debian-based Docker container for any Python script,
-detects dependencies, builds and runs it.
-
-Usage:
-    python3 dockerizer.py <path_to_python_file>
-    python3 dockerizer.py app.py
-    python3 dockerizer.py /path/to/script.py --no-run
-"""
 
 import sys
 import os
@@ -198,7 +188,6 @@ def main():
     work_dir = os.path.dirname(python_file)
     script_name = os.path.basename(python_file)
     base_name = os.path.splitext(script_name)[0]
-
     image_name = args.image_name or f"py-{base_name.lower()}"
     container_name = args.container_name or f"{image_name}-container"
 
